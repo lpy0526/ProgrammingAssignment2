@@ -28,7 +28,8 @@ cacheSolve <- function(x, ...) {
                 return(inv)
         }
         data <- x$get()
-        inv <- solve(data,...)
+        library(MASS)
+        inv <- ginv(data)
         x$setinverse(inv)
         inv
 }
